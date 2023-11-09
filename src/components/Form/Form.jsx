@@ -15,20 +15,20 @@ function From(props) {
             subject,
         };
         tg.sendData(JSON.stringify(data));
-    }, [country, street, subject, tg]);
+    }, [country, street, subject]);
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData);
         return () => {
             tg.offEvent('mainButtonClicked', onSendData);
         };
-    }, [onSendData, tg]);
+    }, [onSendData]);
 
     useEffect(() => {
         tg.MainButton.setParams({
             text: 'Отправить данные',
         });
-    }, [tg.MainButton]);
+    }, []);
 
     useEffect(() => {
         if (!street || !country) {
@@ -36,7 +36,7 @@ function From(props) {
         } else {
             tg.MainButton.show();
         }
-    }, [country, street, tg.MainButton]);
+    }, [country, street]);
 
     const onChangeCountry = e => {
         setCountry(e.target.value);
