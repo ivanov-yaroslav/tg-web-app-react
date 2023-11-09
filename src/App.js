@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import './App.css';
-import Header from './components/Header/Header';
-import Button from './components/Button/Button';
+// import Header from './components/Header/Header';
+// import Button from './components/Button/Button';
 import { useTelegram } from './hooks/useTelegram';
 
 function App() {
@@ -11,11 +11,7 @@ function App() {
         tg.ready();
     });
 
-    return (
-        <div className='App'>
-            <Button onClick={onToggleButton}>Toggle</Button>
-        </div>
-    );
+    return <div className='App'>{/* <Button onClick={onToggleButton}>Toggle</Button> */}</div>;
 }
 
 export default App;
